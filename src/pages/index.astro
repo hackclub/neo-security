@@ -3,6 +3,11 @@ import Base from '../layouts/Base.astro'
 import Icon from '../components/Icon.astro'
 import Section from '../components/Section.astro'
 import t from '../i18n/en.json'
+import { Image } from 'astro:assets'
+import footArt from '../assets/foot.png'
+import heidiX from '../assets/heidi-x.png'
+import heidiLeft from '../assets/heidi-security-left.webp'
+import heidiRight from '../assets/heidi-security-right.webp'
 
 type PaymentIcon = 'landmark' | 'mail' | 'wise' | 'globe'
 
@@ -22,16 +27,33 @@ const rewardGroups = (t.rewards.groups as {
 
 const externalHint = ` (${t.ui.opensInNewTab})`
 
+type FooterIcon = 'mail' | 'globe' | 'github'
+const footerLinks = t.footer.links as { icon: FooterIcon; label: string; href: string }[]
+type FooterCredit = { label: string; name: string; href: string }
+const loveCredit = t.footer.credit.love as FooterCredit
+const creditLinks = t.footer.credit.people as FooterCredit[]
+
 const markWord = 'Bounty'
 const markIndex = t.hero.title.indexOf(markWord)
+const brandWord = 'Hack Club'
+const softHead = t.hero.title.slice(brandWord.length, markIndex)
+const titleTail = t.hero.title.slice(markIndex + markWord.length)
 ---
 
 <Base>
   <main id="content" class="wrap">
     <header class="masthead">
-      <h1>{t.hero.title.slice(0, markIndex)}<span class="cash">{markWord}<svg class="cash-mark" viewBox="0 0 320 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path vector-effect="non-scaling-stroke" d="M3 8C60 6 110 10 165 7.5S270 6 317 8.5" /></svg></span>{t.hero.title.slice(markIndex + markWord.length)}</h1>
-      <p class="lede">{t.hero.tagline}</p>
-      <a class="cta" href={t.submit} target="_blank" rel="noopener noreferrer" aria-label={t.ui.submitReportNewTab}>{t.hero.cta} <span aria-hidden="true">→</span></a>
+      <div class="mast-col">
+        <div class="hero-art">
+          <Image class="heidi heidi-left" src={heidiLeft} alt="" aria-hidden="true" width={452} height={489} loading="eager" fetchpriority="low" decoding="async" />
+          <Image class="heidi heidi-right" src={heidiRight} alt="" aria-hidden="true" width={453} height={478} loading="eager" fetchpriority="low" decoding="async" />
+          <h1>{brandWord}<span class="title-soft">{softHead}<br class="title-break" /><span class="title-tail"><span class="cash">{markWord}<svg class="cash-mark" viewBox="0 0 320 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path vector-effect="non-scaling-stroke" d="M3 8C60 6 110 10 165 7.5S270 6 317 8.5" /></svg></span>{titleTail}</span></span></h1>
+        </div>
+        <div class="hero-meta">
+          <p class="lede">{t.hero.tagline}</p>
+          <a class="cta" href={t.submit} target="_blank" rel="noopener noreferrer" aria-label={t.ui.submitReportNewTab}>{t.hero.cta} <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
     </header>
 
     <Section label={t.programs.label} id="programs">
@@ -41,6 +63,7 @@ const markIndex = t.hero.title.indexOf(markWord)
     </Section>
 
     <Section label={t.rewards.label} desc={t.rewards.desc} id="rewards">
+      <Image class="heidi-pay" slot="label-suffix" src={heidiRight} alt="" aria-hidden="true" width={453} height={478} loading="lazy" decoding="async" />
       {rewardGroups.map((g) => (
         <article class="reward-group" aria-labelledby={`reward-${g.id}`}>
           <h3 id={`reward-${g.id}`}>{g.name}</h3>
@@ -80,6 +103,15 @@ const markIndex = t.hero.title.indexOf(markWord)
       <p class="fine">{t.payments.note}</p>
     </Section>
 
+    <section id="ai" aria-labelledby="ai-heading">
+      <div class="ai-body">
+        <div class="ai-col">
+          <h2 id="ai-heading" class="label">{t.ai.label}<Image class="ai-heidi" src={heidiX} alt="" aria-hidden="true" width={391} height={400} loading="lazy" decoding="async" /></h2>
+          <p class="body">{t.ai.body}</p>
+        </div>
+      </div>
+    </section>
+
     <Section label={t.scope.label} desc={t.scope.desc} id="scope">
       <ul>{t.scope.items.map((s) => <li>{s}</li>)}</ul>
     </Section>
@@ -88,31 +120,32 @@ const markIndex = t.hero.title.indexOf(markWord)
       {t.safeharbor.body.map((p) => <p class="body">{p}</p>)}
     </Section>
 
-    <section id="ai" aria-labelledby="ai-heading">
-      <div class="ai-body">
-        <div class="ai-col">
-          <h2 id="ai-heading" class="label">{t.ai.label}</h2>
-          <p class="body">{t.ai.body}</p>
-        </div>
-        <div class="ai-heidi"><img src="/heidi_x.png" alt="" aria-hidden="true" width="391" height="400" loading="lazy" decoding="async" /></div>
-      </div>
-    </section>
-
     <footer class="foot">
-      <div class="foot-band">
-        <img class="foot-mascot" src="/mascot.addb7428.webp" alt="" aria-hidden="true" width="208" height="224" loading="lazy" decoding="async" />
-        <div class="foot-body">
+      <Image class="foot-art" src={footArt} alt="" aria-hidden="true" width={1024} height={515} format="webp" quality="high" loading="lazy" decoding="async" />
+      <div class="foot-body">
+        <div class="foot-headrow">
           <p class="foot-headline">
             <a class="foot-hcb" href={t.footer.href} target="_blank" rel="noopener noreferrer">
               <span class="foot-amt" data-hcb-spent aria-live="polite" aria-atomic="true"></span>{' '}<span class="foot-hcb-text">{t.footer.text} <span class="foot-hcb-arrow" aria-hidden="true">↗</span></span>
               <span class="visually-hidden">{externalHint}</span>
             </a>
           </p>
-          <p class="foot-fine">
-            <span class="credit">{t.footer.credit.label} {t.footer.credit.people.map((p, i) => (<>{i > 0 && ' and '}<a href={p.href} target="_blank" rel="noopener noreferrer">{p.name}<span class="visually-hidden">{externalHint}</span></a></>))}</span>
-            <span class="foot-sep" aria-hidden="true">·</span>
-            {t.footer.legal}
+          <ul class="foot-social">
+            {footerLinks.map((l) => (
+              <li>
+                <a href={l.href} aria-label={l.href.startsWith('http') ? `${l.label}${externalHint}` : l.label} target={l.href.startsWith('http') ? '_blank' : undefined} rel={l.href.startsWith('http') ? 'noopener noreferrer' : undefined}>
+                  <Icon name={l.icon} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="foot-fine">
+          <p class="foot-credit">
+            <span>{loveCredit.label} <a href={loveCredit.href} target="_blank" rel="noopener noreferrer">{loveCredit.name}<span class="visually-hidden">{externalHint}</span></a>.</span>{' '}
+            {creditLinks.map((p, i) => (<>{i > 0 && ', '}{p.label}<a href={p.href} target="_blank" rel="noopener noreferrer">{p.name}<span class="visually-hidden">{externalHint}</span></a></>))}
           </p>
+          <p>{t.footer.legal}</p>
         </div>
       </div>
     </footer>

@@ -66,6 +66,7 @@ body {
   font-size: var(--fs-body);
   font-synthesis: none;
   line-height: 1.6;
+  overflow-x: clip;
 }
 
 ul {
@@ -150,6 +151,17 @@ a:focus-visible {
   cursor: default;
 }
 
+.foot-social svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .nav .locked svg {
   width: 13px;
   height: 13px;
@@ -196,7 +208,6 @@ a:focus-visible {
 
 .cta {
   display: inline-block;
-  margin-top: 0;
   font-weight: var(--w-bold);
   text-decoration-thickness: 2px;
   text-underline-offset: 0.2em;
@@ -240,17 +251,79 @@ a:focus-visible {
 }
 
 .masthead {
+  --heidi-size: clamp(64px, 9.5vw, 184px);
+  --heidi-gap: clamp(-8px, -0.6vw, 0px);
+  --heidi-gap-left: clamp(10px, 0.9vw, 20px);
+
   padding-top: var(--sp-7);
+  text-align: left;
+}
+
+.mast-col {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+}
+
+.hero-art {
+  position: relative;
+  display: inline-block;
+}
+
+.heidi {
+  position: absolute;
+  z-index: 0;
+  width: var(--heidi-size);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+.heidi-left {
+  right: calc(100% + var(--heidi-gap-left));
+  top: 74%;
+  transform: translateY(-50%);
+}
+
+.heidi-right {
+  left: calc(100% + var(--heidi-gap));
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.heidi-pay {
+  display: none;
+}
+
+.masthead h1,
+.lede,
+.cta {
+  position: relative;
+  z-index: 1;
 }
 
 .masthead h1 {
-  max-width: 14ch;
+  width: max-content;
+  max-width: none;
   font-family: var(--display);
-  font-size: clamp(40px, 7.5vw, 80px);
+  font-size: clamp(32px, 7.5vw, 80px);
   font-weight: 400;
   line-height: 1.03;
   letter-spacing: -0.01em;
-  text-wrap: balance;
+}
+
+.title-soft {
+  font-family: var(--body);
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+.title-break {
+  display: block;
+}
+
+.title-tail {
+  white-space: nowrap;
 }
 
 .lede {
@@ -433,34 +506,57 @@ section {
 }
 
 .ai-body {
-  display: flex;
-  align-items: stretch;
-  gap: var(--sp-3);
+  position: relative;
 }
 
 .ai-col {
-  flex: 1;
   min-width: 0;
+  padding-right: 184px;
 }
 
 .ai-heidi {
-  position: relative;
-  flex: 0 0 auto;
-  width: 160px;
-}
-
-.ai-heidi img {
   position: absolute;
-  inset: 0;
-  width: 100%;
+  top: 0;
+  right: 0;
+  width: 160px;
   height: 100%;
   object-fit: contain;
   object-position: left top;
 }
 
 .foot {
-  margin-top: var(--sp-8);
-  padding: var(--sp-5) 0 var(--sp-6);
+  --foot-art-h: clamp(140px, 18vw, 188px);
+
+  position: relative;
+  isolation: isolate;
+  margin-top: clamp(130px, 15vh, 188px);
+  padding-top: calc(var(--foot-art-h) * 0.44 + var(--sp-5));
+  padding-bottom: var(--sp-6);
+}
+
+.foot::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 50vw);
+  width: 100vw;
+  background-color: #0b0b0f;
+  background-image: repeating-linear-gradient(135deg, #17171d 0 1px, transparent 1px 8px);
+}
+
+.foot-art {
+  position: absolute;
+  top: calc(var(--foot-art-h) * -0.56);
+  right: clamp(-14px, -1vw, 0px);
+  width: auto;
+  height: var(--foot-art-h);
+  max-width: 100%;
+  object-fit: contain;
+  object-position: right top;
+  pointer-events: none;
+  user-select: none;
 }
 
 .foot a {
@@ -468,30 +564,20 @@ section {
   text-decoration: none;
 }
 
-.foot a:hover {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
-}
-
-.foot-band {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-4);
-}
-
-.foot-mascot {
-  flex: 0 0 auto;
-  width: auto;
-  height: 50px;
-}
-
 .foot-body {
-  min-width: 0;
   color: var(--ink-2);
   font-family: var(--sans);
   font-size: var(--fs-sm);
   line-height: 1.6;
+}
+
+.foot-headrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3) var(--sp-5);
+  margin-bottom: var(--sp-4);
 }
 
 .foot-amt {
@@ -500,18 +586,99 @@ section {
   font-variant-numeric: tabular-nums;
 }
 
+.foot-social {
+  display: flex;
+  gap: var(--sp-2);
+}
+
+.foot-social a {
+  display: inline-flex;
+  padding: 6px;
+  color: var(--ink-2);
+}
+
+.foot-credit a {
+  color: var(--red);
+  white-space: nowrap;
+}
+
+.foot a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
 .foot-hcb:hover .foot-amt {
   color: var(--red-hi);
 }
 
-.foot-sep {
-  margin: 0 0.4ch;
-  color: var(--ink-3);
+.foot-social a:hover {
+  color: var(--red);
+  text-decoration: none;
 }
 
-.foot-fine .credit a {
-  color: var(--red);
-  white-space: nowrap;
+.foot-fine {
+  max-width: 64ch;
+  color: var(--ink-3);
+  font-family: var(--sans);
+  font-size: var(--fs-fine);
+  line-height: 1.55;
+}
+
+.foot-credit {
+  margin-bottom: 2px;
+}
+
+@media (width <= 1080px) {
+  .masthead {
+    --heidi-size: clamp(72px, 11vw, 120px);
+    --heidi-gap: clamp(-8px, -0.7vw, 0px);
+    --heidi-gap-left: clamp(-8px, -0.7vw, 0px);
+
+    text-align: center;
+  }
+
+  .mast-col {
+    display: block;
+    text-align: center;
+  }
+
+  .hero-meta {
+    margin-top: clamp(40px, 8vw, 92px);
+    text-align: left;
+  }
+
+  .masthead + section {
+    margin-top: var(--sp-4);
+  }
+}
+
+@media (width <= 640px) {
+  .masthead,
+  .mast-col {
+    text-align: left;
+  }
+
+  .hero-art {
+    display: block;
+  }
+
+  .masthead h1 {
+    width: auto;
+    max-width: 100%;
+  }
+
+  .heidi {
+    display: none;
+  }
+
+  .heidi-pay {
+    display: inline-block;
+    width: auto;
+    height: 1.4em;
+    margin-left: 0.4em;
+    vertical-align: -0.34em;
+  }
 }
 
 @media (width <= 560px) {
@@ -527,26 +694,23 @@ section {
     margin-top: var(--sp-6);
   }
 
-
   #payments .methods {
     grid-template-columns: 1fr;
     gap: var(--sp-4);
     margin-bottom: var(--sp-4);
   }
 
-  .ai-body {
-    flex-direction: column;
-    align-items: flex-start;
+  .ai-col {
+    padding-right: 0;
   }
 
   .ai-heidi {
     position: static;
-    width: 128px;
-  }
-
-  .ai-heidi img {
-    position: static;
-    height: auto;
+    display: inline-block;
+    width: auto;
+    height: 1.45em;
+    margin-left: 0.4em;
+    vertical-align: -0.36em;
   }
 }
 

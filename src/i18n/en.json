@@ -112,15 +112,15 @@
     "label": "Out of scope",
     "desc": "Any program not participating is out of scope. Generally also out of scope, not exhaustive:",
     "items": [
-      "scraping public Slack information or account enumeration",
       "pure brute force attacks",
-      "clickjacking without significant impact",
-      "server side request forgery without proven meaningful impact",
-      "automated scanner output without real-world impact",
       "social engineering or phishing",
+      "clickjacking without significant impact",
       "self-exploitation requiring user interaction",
       "denial of service through resource exhaustion",
-      "platform issues like on Slack that are outside our control"
+      "automated scanner output without real-world impact",
+      "scraping public Slack information or account enumeration",
+      "platform issues on Slack that are outside our control",
+      "server side request forgery without proven meaningful impact"
     ]
   },
   "safeharbor": {
@@ -138,13 +138,18 @@
   "footer": {
     "text": "paid out in bounties",
     "href": "https://hcb.hackclub.com/hack-club-security",
+    "links": [
+      { "icon": "mail", "label": "security@hackclub.com", "href": "mailto:security@hackclub.com" },
+      { "icon": "globe", "label": "hackclub.com", "href": "https://hackclub.com" },
+      { "icon": "github", "label": "Source on GitHub", "href": "https://github.com/hackclub/neo-security" }
+    ],
     "credit": {
-      "label": "Art by",
+      "love": { "label": "With ♥ by", "name": "Parth", "href": "https://hackclub.enterprise.slack.com/team/U092CHMLB24" },
       "people": [
-        { "name": "herby", "href": "https://hackclub.enterprise.slack.com/team/U09J9QJQRFC" },
-        { "name": "bunnyguy", "href": "https://bunnyguy.foo/" }
+        { "label": "Art by ", "name": "Herby", "href": "https://hackclub.enterprise.slack.com/team/U09J9QJQRFC" },
+        { "label": "icon by ", "name": "Bunnyguy", "href": "https://bunnyguy.foo/" }
       ]
     },
-    "legal": "© 2026 Hack Club"
+    "legal": "© 2026 Hack Club. Registered under The Hack Foundation."
   }
 }

@@ -11,7 +11,7 @@ const descId = desc ? `${id}-desc` : undefined
 ---
 
 <section id={id} aria-labelledby={headingId} aria-describedby={descId}>
-  <h2 id={headingId} class="label">{label}</h2>
+  <h2 id={headingId} class="label">{label}<slot name="label-suffix" /></h2>
   {desc && <p id={descId} class="desc" set:html={desc} />}
   <slot />
 </section>

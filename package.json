@@ -2,6 +2,7 @@
   "name": "hack-club-security",
   "type": "module",
   "version": "0.1.0",
+  "license": "MIT",
   "private": true,
   "packageManager": "npm@11.12.1",
   "engines": {

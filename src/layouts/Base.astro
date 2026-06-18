@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css'
+import SpeedInsights from '@vercel/speed-insights/astro'
 import t from '../i18n/en.json'
 
 interface Props {
@@ -42,5 +43,6 @@ const ogImage = new URL('/og.png', Astro.site)
   <body>
     <a class="skip-link" href="#content">{t.ui.skipToContent}</a>
     <slot />
+    <SpeedInsights />
   </body>
 </html>

@@ -5,7 +5,7 @@
   "private": true,
   "packageManager": "npm@11.12.1",
   "engines": {
-    "node": "22.x",
+    "node": "24.x",
     "npm": ">=9.6.5"
   },
   "scripts": {
@@ -21,11 +21,12 @@
     "check:audit": "npm audit --audit-level=moderate"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^2.0.0",
     "astro": "^6.4.7"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
-    "@types/node": "^22.19.21",
+    "@types/node": "^24.13.2",
     "html-validate": "^11.5.3",
     "stylelint": "^17.13.0",
     "stylelint-config-standard": "^40.0.0",

@@ -88,14 +88,15 @@ const markIndex = t.hero.title.indexOf(markWord)
       {t.safeharbor.body.map((p) => <p class="body">{p}</p>)}
     </Section>
 
-    <Section label={t.ai.label} id="ai">
-      <p class="body">{t.ai.body}</p>
-    </Section>
-
-    <Section label={t.report.label} id="report">
-      <p class="body">{t.report.body}</p>
-      <a class="cta" href={t.submit} target="_blank" rel="noopener noreferrer" aria-label={t.ui.submitReportNewTab}>{t.report.cta} <span aria-hidden="true">→</span></a>
-    </Section>
+    <section id="ai" aria-labelledby="ai-heading">
+      <div class="ai-body">
+        <div class="ai-col">
+          <h2 id="ai-heading" class="label">{t.ai.label}</h2>
+          <p class="body">{t.ai.body}</p>
+        </div>
+        <div class="ai-heidi"><img src="/heidi_x.png" alt="" aria-hidden="true" width="391" height="400" loading="lazy" decoding="async" /></div>
+      </div>
+    </section>
 
     <footer class="foot">
       <div class="foot-band">
@@ -108,7 +109,7 @@ const markIndex = t.hero.title.indexOf(markWord)
             </a>
           </p>
           <p class="foot-fine">
-            <span class="credit">{t.footer.credit.label} <a href={t.footer.credit.href} target="_blank" rel="noopener noreferrer">{t.footer.credit.name}<span class="visually-hidden">{externalHint}</span></a></span>
+            <span class="credit">{t.footer.credit.label} {t.footer.credit.people.map((p, i) => (<>{i > 0 && ' and '}<a href={p.href} target="_blank" rel="noopener noreferrer">{p.name}<span class="visually-hidden">{externalHint}</span></a></>))}</span>
             <span class="foot-sep" aria-hidden="true">·</span>
             {t.footer.legal}
           </p>

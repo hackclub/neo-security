@@ -135,18 +135,15 @@
     "label": "AI reports",
     "body": "Using AI to improve your report is fine, but submissions that are entirely AI-generated with no original input will not be accepted. We want original research with real-world impact. In some cases, a 0.5x or worse multiplier will be levied on valid reports that are hard to process! You may also be banned from participating in the program."
   },
-  "report": {
-    "label": "Reporting",
-    "body": "Submit vulnerabilities through the form and we will follow up over email.",
-    "cta": "Submit a report"
-  },
   "footer": {
     "text": "paid out in bounties",
     "href": "https://hcb.hackclub.com/hack-club-security",
     "credit": {
-      "label": "Icon by",
-      "name": "bunnyguy",
-      "href": "https://bunnyguy.foo/"
+      "label": "Art by",
+      "people": [
+        { "name": "herby", "href": "https://hackclub.enterprise.slack.com/team/U09J9QJQRFC" },
+        { "name": "bunnyguy", "href": "https://bunnyguy.foo/" }
+      ]
     },
     "legal": "© 2026 Hack Club"
   }

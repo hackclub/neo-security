@@ -432,6 +432,32 @@ section {
   margin-bottom: 0;
 }
 
+.ai-body {
+  display: flex;
+  align-items: stretch;
+  gap: var(--sp-3);
+}
+
+.ai-col {
+  flex: 1;
+  min-width: 0;
+}
+
+.ai-heidi {
+  position: relative;
+  flex: 0 0 auto;
+  width: 160px;
+}
+
+.ai-heidi img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left top;
+}
+
 .foot {
   margin-top: var(--sp-8);
   padding: var(--sp-5) 0 var(--sp-6);
@@ -501,10 +527,26 @@ section {
     margin-top: var(--sp-6);
   }
 
+
   #payments .methods {
     grid-template-columns: 1fr;
     gap: var(--sp-4);
     margin-bottom: var(--sp-4);
+  }
+
+  .ai-body {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ai-heidi {
+    position: static;
+    width: 128px;
+  }
+
+  .ai-heidi img {
+    position: static;
+    height: auto;
   }
 }
 

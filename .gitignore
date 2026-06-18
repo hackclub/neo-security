@@ -9,3 +9,4 @@ npm-debug.log*
 
 # Local reference checkouts (not committed)
 ref/
+.vercel

@@ -117,8 +117,8 @@
       "clickjacking without significant impact",
       "self-exploitation requiring user interaction",
       "denial of service through resource exhaustion",
-      "automated scanner output without real-world impact",
       "platform issues on Slack that are outside our control",
+      "automated scanner output without real-world impact",
       "scraping public Slack information or account enumeration",
       "server side request forgery without proven meaningful impact"
     ]

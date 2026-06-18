@@ -1,0 +1,29 @@
+---
+import t from '../i18n/en.json'
+import Icon from './Icon.astro'
+
+interface Props {
+  current: string
+}
+
+const { current } = Astro.props
+const links = t.nav.links as { text: string; href: string; locked?: boolean }[]
+---
+
+<nav class="nav" aria-label={t.nav.label}>
+  <ul>
+    {links.map((link) => (
+      <li>
+        {link.locked ? (
+          <span class="locked" aria-disabled="true" title={t.ui.comingSoon}>
+            <span>{link.text}</span>
+            <Icon name="lock" />
+            <span class="visually-hidden"> ({t.ui.comingSoon.toLowerCase()})</span>
+          </span>
+        ) : (
+          <a href={link.href} aria-current={link.href === current ? 'page' : undefined}>{link.text}</a>
+        )}
+      </li>
+    ))}
+  </ul>
+</nav>

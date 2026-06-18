@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /robots.txt
+Allow: /no-bots.txt
+Disallow: /
+
+# Automated scraping, indexing, mirroring, bulk access, scanning, and AI training use are not authorized.
+# See /no-bots.txt.

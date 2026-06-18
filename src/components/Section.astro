@@ -1,0 +1,17 @@
+---
+interface Props {
+  label: string
+  desc?: string
+  id: string
+}
+
+const { label, desc, id } = Astro.props
+const headingId = `${id}-heading`
+const descId = desc ? `${id}-desc` : undefined
+---
+
+<section id={id} aria-labelledby={headingId} aria-describedby={descId}>
+  <h2 id={headingId} class="label">{label}</h2>
+  {desc && <p id={descId} class="desc" set:html={desc} />}
+  <slot />
+</section>

@@ -1,0 +1,11 @@
+.astro/
+.claude/
+.vercel/
+dist/
+node_modules/
+
+.DS_Store
+npm-debug.log*
+
+# Local reference checkouts (not committed)
+ref/

@@ -1,0 +1,19 @@
+No Bots Policy
+
+Automated access to this website is not authorized except to read robots.txt and no-bots.txt.
+
+Do not use bots, scripts, agents, crawlers, scrapers, or automated tooling to access this site without written permission from Hack Club.
+
+Disallowed automated uses include:
+
+- scraping
+- indexing
+- data mining
+- bulk downloading
+- mirroring
+- training-data collection
+- automated summarization or republication
+- automated vulnerability scanning
+- automated form submission
+
+All other automated access is disallowed unless Hack Club gives written permission.

@@ -1,0 +1,153 @@
+{
+  "meta": {
+    "lang": "en",
+    "title": "Hack Club Security Bounty Program",
+    "description": "Find vulnerabilities across Hack Club programs, disclose them responsibly, and earn bounties."
+  },
+  "ui": {
+    "skipToContent": "Skip to content",
+    "opensInNewTab": "opens in a new tab",
+    "submitReportNewTab": "Submit a security vulnerability report (opens in a new tab)",
+    "comingSoon": "Coming soon"
+  },
+  "submit": "https://forms.hackclub.com/t/mDiQxDefmaus",
+  "nav": {
+    "label": "Site sections",
+    "links": [
+      { "text": "Bounty", "href": "/" },
+      { "text": "Leaderboard", "href": "/leaderboard", "locked": true }
+    ]
+  },
+  "hero": {
+    "title": "Hack Club Security Bounty Program",
+    "tagline": "Find security vulnerabilities & get cold, hard cash!",
+    "cta": "Submit a report"
+  },
+  "programs": {
+    "label": "Programs",
+    "start": "Anything on",
+    "ysws": {
+      "label": "ysws.hackclub.com",
+      "href": "https://ysws.hackclub.com"
+    },
+    "middle": "is covered, along with any miscellaneous Hack Club HQ program. HCB run their own security program and you can find their policy",
+    "policy": {
+      "label": "here",
+      "href": "https://hcb.hackclub.com/security"
+    },
+    "end": "."
+  },
+  "rewards": {
+    "label": "Payouts",
+    "desc": "<strong>Note</strong>: These amounts are approximations and final bounty amounts are subject to our discretion. This list is subject to change.",
+    "groups": [
+      {
+        "name": "PII leaks (main criteria)",
+        "rows": [
+          {
+            "amount": "$750+",
+            "title": "Critical severity",
+            "desc": "government-issued ID, identity verification documents"
+          },
+          {
+            "amount": "$300",
+            "title": "High severity",
+            "desc": "physical address, phone numbers"
+          },
+          {
+            "amount": "$150",
+            "title": "Medium severity",
+            "desc": "starting at $50; private email on Hack Club platforms, legal names, exact birthdate"
+          },
+          {
+            "amount": "$20",
+            "title": "Low severity",
+            "desc": "10+ people; IP addresses, non-public information"
+          }
+        ]
+      },
+      {
+        "name": "Remote code execution",
+        "rows": [
+          {
+            "amount": "$500",
+            "title": "Root or admin",
+            "desc": "root on *.selfhosted.hackclub.com or hcb.hackclub.com, or admin on the vercel.com/@hackclub GitHub, outside Docker"
+          },
+          {
+            "amount": "$250+",
+            "title": "Non-root",
+            "desc": "access to any of the above, or RCE in a sensitive Docker container on our infrastructure. payout can go up depending on PII impact!"
+          }
+        ]
+      },
+      {
+        "name": "Other",
+        "rows": [
+          {
+            "amount": "$50",
+            "title": "Information disclosure or integrity violations",
+            "desc": "exposed admin panels, configuration issues, irrecoverably high impact destructive actions"
+          },
+          {
+            "amount": "PII",
+            "title": "XSS, CSRF, Open Proxy/Redirect",
+            "desc": "paid according to interaction level & PII impact"
+          }
+        ]
+      }
+    ]
+  },
+  "payments": {
+    "label": "Payment methods",
+    "methods": [
+      { "name": "ACH", "icon": "landmark", "caption": "US bank transfer" },
+      { "name": "Mailed check", "icon": "mail", "caption": "US only, by post" },
+      { "name": "WISE", "icon": "wise", "caption": "International except for India, Iceland and Uganda" },
+      { "name": "Wire transfer", "icon": "globe", "caption": "International; $25 fee applied under $500" }
+    ],
+    "note": "Whichever program the bug is found in covers the payout."
+  },
+  "scope": {
+    "label": "Out of scope",
+    "desc": "Any program not participating is out of scope. Generally also out of scope, not exhaustive:",
+    "items": [
+      "scraping public Slack information or account enumeration",
+      "pure brute force attacks",
+      "clickjacking without significant impact",
+      "server side request forgery without proven meaningful impact",
+      "automated scanner output without real-world impact",
+      "social engineering or phishing",
+      "self-exploitation requiring user interaction",
+      "denial of service through resource exhaustion",
+      "platform issues like on Slack that are outside our control"
+    ]
+  },
+  "safeharbor": {
+    "label": "Safe harbor",
+    "body": [
+      "We support good-faith security research: accessing a system only to find, investigate, or fix a security flaw, in a way that avoids harm to people or the public, and using what you learn to improve security.",
+      "For good-faith research conducted while this program is active, we will not bring or support legal action against you, including for bypassing measures that protect in-scope applications. If someone else brings legal action against you for that research, we will take steps to make known that you acted in good faith.",
+      "We ask the same care in return: respect privacy and make a good-faith effort not to access or destroy other people's data, report what you find promptly, and never exploit a vulnerability beyond what is needed to demonstrate it."
+    ]
+  },
+  "ai": {
+    "label": "AI reports",
+    "body": "Using AI to improve your report is fine, but submissions that are entirely AI-generated with no original input will not be accepted. We want original research with real-world impact. In some cases, a 0.5x or worse multiplier will be levied on valid reports that are hard to process! You may also be banned from participating in the program."
+  },
+  "report": {
+    "label": "Reporting",
+    "body": "Submit vulnerabilities through the form and we will follow up over email.",
+    "cta": "Submit a report"
+  },
+  "footer": {
+    "text": "paid out in bounties",
+    "href": "https://hcb.hackclub.com/hack-club-security",
+    "credit": {
+      "label": "Icon by",
+      "name": "bunnyguy",
+      "href": "https://bunnyguy.foo/"
+    },
+    "legal": "© 2026 Hack Club"
+  }
+}

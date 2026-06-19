@@ -52,7 +52,7 @@
           {
             "amount": "$300",
             "title": "High severity",
-            "desc": "physical address, phone numbers"
+            "desc": "physical address, phone numbers, HCA HQ secrets w/ address intent"
           },
           {
             "amount": "$150",
@@ -62,7 +62,7 @@
           {
             "amount": "$20",
             "title": "Low severity",
-            "desc": "10+ people; IP addresses, non-public information, Hackatime OAuth2 bearer tokens"
+            "desc": "10+ people; IP addresses, non-public information, Hackatime OAuth2 bearer tokens, HCA HQ secrets"
           }
         ]
       },

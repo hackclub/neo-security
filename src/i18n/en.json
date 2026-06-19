@@ -52,17 +52,17 @@
           {
             "amount": "$300",
             "title": "High severity",
-            "desc": "physical address, phone numbers, HCA HQ secrets w/ address intent"
+            "desc": "physical address, phone numbers"
           },
           {
             "amount": "$150",
             "title": "Medium severity",
-            "desc": "starting at $50; private email on Hack Club platforms, legal names, exact birthdate, Hackatime HQ OAuth2 secrets"
+            "desc": "starting at $50; private email on Hack Club platforms, legal names, exact birthdate"
           },
           {
             "amount": "$20",
             "title": "Low severity",
-            "desc": "10+ people; IP addresses, non-public information, Hackatime OAuth2 bearer tokens, HCA HQ secrets"
+            "desc": "10+ people; IP addresses, non-public information"
           }
         ]
       },
@@ -92,7 +92,7 @@
           {
             "amount": "PII",
             "title": "XSS, CSRF, Open Proxy/Redirect",
-            "desc": "paid according to interaction level & PII impact"
+            "desc": "paid according to interaction level & PII impact. HCA/Hackatime OAuth2 application secrets will be paid based on PII and access level."
           }
         ]
       }

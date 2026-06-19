@@ -57,12 +57,12 @@
           {
             "amount": "$150",
             "title": "Medium severity",
-            "desc": "starting at $50; private email on Hack Club platforms, legal names, exact birthdate"
+            "desc": "starting at $50; private email on Hack Club platforms, legal names, exact birthdate, Hackatime HQ OAuth2 tokens"
           },
           {
             "amount": "$20",
             "title": "Low severity",
-            "desc": "10+ people; IP addresses, non-public information"
+            "desc": "10+ people; IP addresses, non-public information, Hackatime OAuth2 bearer tokens"
           }
         ]
       },

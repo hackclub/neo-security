@@ -281,7 +281,7 @@ a:focus-visible {
 
 .heidi-left {
   right: calc(100% + var(--heidi-gap-left));
-  top: 74%;
+  top: 114%;
   transform: translateY(-50%);
 }
 
@@ -510,18 +510,20 @@ section {
 }
 
 .ai-col {
+  --ai-art: 200px;
+
   min-width: 0;
-  padding-right: 184px;
+  padding-right: calc(var(--ai-art) + var(--sp-4));
 }
 
 .ai-heidi {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 160px;
+  inset: 0 0 0 auto;
+  width: auto;
   height: 100%;
+  max-width: var(--ai-art);
   object-fit: contain;
-  object-position: left top;
+  object-position: right center;
 }
 
 .foot {
@@ -584,6 +586,25 @@ section {
   color: var(--red);
   font-weight: var(--w-bold);
   font-variant-numeric: tabular-nums;
+}
+
+.foot-amt:empty::after {
+  content: "Loading.";
+  animation: foot-loading 1.2s steps(1) infinite;
+}
+
+@keyframes foot-loading {
+  0% {
+    content: "Loading.";
+  }
+
+  33% {
+    content: "Loading..";
+  }
+
+  66% {
+    content: "Loading...";
+  }
 }
 
 .foot-social {

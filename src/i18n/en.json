@@ -57,7 +57,7 @@
           {
             "amount": "$150",
             "title": "Medium severity",
-            "desc": "starting at $50; private email on Hack Club platforms, legal names, exact birthdate"
+            "desc": "starting at $50; private (not Slack/HCA) emails on Hack Club platforms, names (except display names), exact birthdate"
           },
           {
             "amount": "$20",

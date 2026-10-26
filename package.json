@@ -4,38 +4,37 @@
   "version": "0.1.0",
   "license": "MIT",
   "private": true,
-  "packageManager": "npm@11.12.1",
+  "packageManager": "bun@1.4.4",
   "engines": {
-    "node": "24.x",
-    "npm": ">=9.6.5"
+    "bun": ">=1.4.4"
   },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "npm run check:types && npm run check:css && npm run build && npm run check:html && npm run check:audit",
-    "check:types": "npm run check:astro && npm run check:js",
+    "check": "bun run check:types && bun run check:css && bun run build && bun run check:html && bun run check:audit",
+    "check:types": "bun run check:astro && bun run check:js",
     "check:astro": "astro check --minimumSeverity hint --minimumFailingSeverity hint",
-    "check:js": "tsc --noEmit --allowJs --checkJs --skipLibCheck --types node --lib ESNext --module NodeNext --moduleResolution NodeNext --target ES2022 astro.config.mjs",
+    "check:js": "tsc --ignoreConfig --noEmit --allowJs --checkJs --skipLibCheck --types node --lib ESNext --module NodeNext --moduleResolution NodeNext --target ES2022 astro.config.mjs",
     "check:css": "stylelint \"src/**/*.css\" --max-warnings=0 --report-needless-disables --report-invalid-scope-disables --report-descriptionless-disables",
     "check:html": "html-validate --preset recommended --max-warnings=0 \"dist/**/*.html\"",
-    "check:audit": "npm audit --audit-level=moderate"
+    "check:audit": "bun audit --audit-level=moderate"
   },
   "dependencies": {
     "@vercel/speed-insights": "^2.0.0",
-    "astro": "^7.1.6"
+    "astro": "^7.4.2"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.9",
-    "@types/node": "^24.13.2",
-    "html-validate": "^11.5.3",
-    "sharp": "^0.35.1",
-    "stylelint": "^17.13.0",
+    "@astrojs/check": "^0.9.12",
+    "@types/node": "^26.6.5",
+    "html-validate": "^11.17.0",
+    "sharp": "^0.35.5",
+    "stylelint": "^17.16.0",
     "stylelint-config-standard": "^40.0.0",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.3"
   },
   "overrides": {
-    "yaml": "^2.8.3",
-    "esbuild": "^0.28.1"
+    "yaml": "^2.9.1",
+    "esbuild": "^0.28.2"
   }
 }
